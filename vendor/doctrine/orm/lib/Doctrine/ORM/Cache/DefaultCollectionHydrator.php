@@ -26,7 +26,7 @@ use Doctrine\ORM\Mapping\ClassMetadata;
 use Doctrine\ORM\EntityManagerInterface;
 
 /**
- * Default hydrator cache for collections
+ * TaskList hydrator cache for collections
  *
  * @since   2.5
  * @author  Fabio B. Silva <fabio.bat.silva@gmail.com>

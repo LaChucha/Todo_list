@@ -1683,7 +1683,7 @@ ruby: |
   ]
 
 ---
-test: Default key
+test: TaskList key
 todo: true
 yaml: |
    ---     # Old schema

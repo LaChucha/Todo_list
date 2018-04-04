@@ -191,7 +191,7 @@ class ParameterBag implements \IteratorAggregate, \Countable
      * Filter key.
      *
      * @param string $key     Key
-     * @param mixed  $default Default = null
+     * @param mixed  $default TaskList = null
      * @param int    $filter  FILTER_* constant
      * @param mixed  $options Filter options
      *

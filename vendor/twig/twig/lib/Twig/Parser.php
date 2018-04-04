@@ -11,7 +11,7 @@
  */
 
 /**
- * Default parser implementation.
+ * TaskList parser implementation.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */

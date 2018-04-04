@@ -16,7 +16,7 @@ use Symfony\Component\PropertyAccess\Exception\InvalidPropertyPathException;
 use Symfony\Component\PropertyAccess\Exception\OutOfBoundsException;
 
 /**
- * Default implementation of {@link PropertyPathInterface}.
+ * TaskList implementation of {@link PropertyPathInterface}.
  *
  * @author Bernhard Schussek <bschussek@gmail.com>
  */

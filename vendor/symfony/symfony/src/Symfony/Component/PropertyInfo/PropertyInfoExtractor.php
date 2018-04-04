@@ -12,7 +12,7 @@
 namespace Symfony\Component\PropertyInfo;
 
 /**
- * Default {@see PropertyInfoExtractorInterface} implementation.
+ * TaskList {@see PropertyInfoExtractorInterface} implementation.
  *
  * @author Kévin Dunglas <dunglas@gmail.com>
  */

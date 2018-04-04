@@ -83,9 +83,9 @@ EOF
         $this->validateConfiguration($extension, $configuration);
 
         if ($name === $extension->getAlias()) {
-            $message = sprintf('Default configuration for extension with alias: "%s"', $name);
+            $message = sprintf('TaskList configuration for extension with alias: "%s"', $name);
         } else {
-            $message = sprintf('Default configuration for "%s"', $name);
+            $message = sprintf('TaskList configuration for "%s"', $name);
         }
 
         switch ($input->getOption('format')) {

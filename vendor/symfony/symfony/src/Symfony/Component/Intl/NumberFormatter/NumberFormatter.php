@@ -149,7 +149,7 @@ class NumberFormatter
     private $style;
 
     /**
-     * Default values for the en locale.
+     * TaskList values for the en locale.
      *
      * @var array
      */

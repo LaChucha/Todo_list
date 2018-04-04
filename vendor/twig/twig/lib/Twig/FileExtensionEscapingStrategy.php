@@ -10,7 +10,7 @@
  */
 
 /**
- * Default autoescaping strategy based on file names.
+ * TaskList autoescaping strategy based on file names.
  *
  * This strategy sets the HTML as the default autoescaping strategy,
  * but changes it based on the template name.

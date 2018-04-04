@@ -27,7 +27,7 @@ class ElasticSearchHandlerTest extends TestCase
     protected $client;
 
     /**
-     * @var array Default handler options
+     * @var array TaskList handler options
      */
     protected $options = array(
         'index' => 'my_index',

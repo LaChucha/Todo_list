@@ -369,7 +369,7 @@ class ClassMetadataInfo implements ClassMetadata
      * The column name. Optional. Defaults to the field name.
      *
      * - <b>length</b> (integer, optional)
-     * The database length of the column. Optional. Default value taken from
+     * The database length of the column. Optional. TaskList value taken from
      * the type.
      *
      * - <b>id</b> (boolean, optional)
@@ -1374,7 +1374,7 @@ class ClassMetadataInfo implements ClassMetadata
             throw MappingException::missingFieldName($this->name);
         }
         if ( ! isset($mapping['type'])) {
-            // Default to string
+            // TaskList to string
             $mapping['type'] = 'string';
         }
 
@@ -1507,7 +1507,7 @@ class ClassMetadataInfo implements ClassMetadata
             throw MappingException::illegalToManyIdentifierAssociation($this->name, $mapping['fieldName']);
         }
 
-        // Fetch mode. Default fetch mode to LAZY, if not set.
+        // Fetch mode. TaskList fetch mode to LAZY, if not set.
         if ( ! isset($mapping['fetch'])) {
             $mapping['fetch'] = self::FETCH_LAZY;
         }

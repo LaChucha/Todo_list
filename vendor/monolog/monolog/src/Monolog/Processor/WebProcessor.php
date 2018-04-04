@@ -24,7 +24,7 @@ class WebProcessor
     protected $serverData;
 
     /**
-     * Default fields
+     * TaskList fields
      *
      * Array is structured as [key in record.extra => key in $serverData]
      *

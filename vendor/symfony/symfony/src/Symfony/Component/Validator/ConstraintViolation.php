@@ -12,7 +12,7 @@
 namespace Symfony\Component\Validator;
 
 /**
- * Default implementation of {@ConstraintViolationInterface}.
+ * TaskList implementation of {@ConstraintViolationInterface}.
  *
  * @author Bernhard Schussek <bschussek@gmail.com>
  */

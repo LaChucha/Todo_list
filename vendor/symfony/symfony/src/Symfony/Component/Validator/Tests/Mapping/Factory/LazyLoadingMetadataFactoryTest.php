@@ -32,8 +32,8 @@ class LazyLoadingMetadataFactoryTest extends TestCase
         $metadata = $factory->getMetadataFor(self::PARENT_CLASS);
 
         $constraints = array(
-            new ConstraintA(array('groups' => array('Default', 'EntityParent'))),
-            new ConstraintA(array('groups' => array('Default', 'EntityInterfaceA', 'EntityParent'))),
+            new ConstraintA(array('groups' => array('TaskList', 'EntityParent'))),
+            new ConstraintA(array('groups' => array('TaskList', 'EntityInterfaceA', 'EntityParent'))),
         );
 
         $this->assertEquals($constraints, $metadata->getConstraints());
@@ -46,27 +46,27 @@ class LazyLoadingMetadataFactoryTest extends TestCase
 
         $constraints = array(
             new ConstraintA(array('groups' => array(
-                'Default',
+                'TaskList',
                 'Entity',
             ))),
             new ConstraintA(array('groups' => array(
-                'Default',
+                'TaskList',
                 'EntityParent',
                 'Entity',
             ))),
             new ConstraintA(array('groups' => array(
-                'Default',
+                'TaskList',
                 'EntityInterfaceA',
                 'EntityParent',
                 'Entity',
             ))),
             new ConstraintA(array('groups' => array(
-                'Default',
+                'TaskList',
                 'EntityInterfaceB',
                 'Entity',
             ))),
             new ConstraintA(array('groups' => array(
-                'Default',
+                'TaskList',
                 'EntityParentInterface',
                 'EntityInterfaceB',
                 'Entity',
@@ -82,11 +82,11 @@ class LazyLoadingMetadataFactoryTest extends TestCase
         $factory = new LazyLoadingMetadataFactory(new TestLoader(), $cache);
 
         $parentClassConstraints = array(
-            new ConstraintA(array('groups' => array('Default', 'EntityParent'))),
-            new ConstraintA(array('groups' => array('Default', 'EntityInterfaceA', 'EntityParent'))),
+            new ConstraintA(array('groups' => array('TaskList', 'EntityParent'))),
+            new ConstraintA(array('groups' => array('TaskList', 'EntityInterfaceA', 'EntityParent'))),
         );
         $interfaceAConstraints = array(
-            new ConstraintA(array('groups' => array('Default', 'EntityInterfaceA'))),
+            new ConstraintA(array('groups' => array('TaskList', 'EntityInterfaceA'))),
         );
 
         $cache->expects($this->never())
@@ -187,7 +187,7 @@ class LazyLoadingMetadataFactoryTest extends TestCase
         }
 
         $this->assertCount(4, $groups);
-        $this->assertContains('Default', $groups);
+        $this->assertContains('TaskList', $groups);
         $this->assertContains('EntityStaticCarTurbo', $groups);
         $this->assertContains('EntityStaticCar', $groups);
         $this->assertContains('EntityStaticVehicle', $groups);

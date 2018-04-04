@@ -38,7 +38,7 @@ class MarkdownDescriptor extends Descriptor
             .'* Is required: '.($argument->isRequired() ? 'yes' : 'no')."\n"
             .'* Is array: '.($argument->isArray() ? 'yes' : 'no')."\n"
             .'* Description: '.preg_replace('/\s*[\r\n]\s*/', "\n  ", $argument->getDescription() ?: '<none>')."\n"
-            .'* Default: `'.str_replace("\n", '', var_export($argument->getDefault(), true)).'`'
+            .'* TaskList: `'.str_replace("\n", '', var_export($argument->getDefault(), true)).'`'
         );
     }
 
@@ -55,7 +55,7 @@ class MarkdownDescriptor extends Descriptor
             .'* Is value required: '.($option->isValueRequired() ? 'yes' : 'no')."\n"
             .'* Is multiple: '.($option->isArray() ? 'yes' : 'no')."\n"
             .'* Description: '.preg_replace('/\s*[\r\n]\s*/', "\n  ", $option->getDescription() ?: '<none>')."\n"
-            .'* Default: `'.str_replace("\n", '', var_export($option->getDefault(), true)).'`'
+            .'* TaskList: `'.str_replace("\n", '', var_export($option->getDefault(), true)).'`'
         );
     }
 

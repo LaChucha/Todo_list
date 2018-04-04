@@ -74,7 +74,7 @@ EOT
 
         if (isset($params['shards'])) {
             $shards = $params['shards'];
-            // Default select global
+            // TaskList select global
             $params = array_merge($params, $params['global']);
             if ($input->getOption('shard')) {
                 foreach ($shards as $shard) {

@@ -2,7 +2,3 @@ todo_list:
     resource: "@TodoListBundle/Controller/"
     type:     annotation
     prefix:   /
-
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation

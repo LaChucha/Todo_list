@@ -428,7 +428,7 @@ class DatabaseDriver implements MappingDriver
             $fieldMapping['options']['comment'] = $comment;
         }
 
-        // Default
+        // TaskList
         if (($default = $column->getDefault()) !== null) {
             $fieldMapping['options']['default'] = $default;
         }

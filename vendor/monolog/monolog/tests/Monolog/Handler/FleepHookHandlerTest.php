@@ -21,7 +21,7 @@ use Monolog\TestCase;
 class FleepHookHandlerTest extends TestCase
 {
     /**
-     * Default token to use in tests
+     * TaskList token to use in tests
      */
     const TOKEN = '123abc';
 

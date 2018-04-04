@@ -48,7 +48,7 @@ class SQLAnywhereStatement implements IteratorAggregate, Statement
     private $defaultFetchClassCtorArgs = array();
 
     /**
-     * @var int Default fetch mode to use.
+     * @var int TaskList fetch mode to use.
      */
     private $defaultFetchMode = PDO::FETCH_BOTH;
 

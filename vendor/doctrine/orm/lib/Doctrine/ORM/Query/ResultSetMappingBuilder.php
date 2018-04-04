@@ -69,7 +69,7 @@ class ResultSetMappingBuilder extends ResultSetMapping
     private $em;
 
     /**
-     * Default column renaming mode.
+     * TaskList column renaming mode.
      *
      * @var int
      */

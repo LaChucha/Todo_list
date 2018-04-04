@@ -47,7 +47,7 @@ class ControllerResolverTest extends BaseControllerResolverTest
 
     public function testGetControllerWithBundleNotation()
     {
-        $shortName = 'FooBundle:Default:test';
+        $shortName = 'FooBundle:TaskList:test';
         $parser = $this->createMockParser();
         $parser->expects($this->once())
             ->method('parse')

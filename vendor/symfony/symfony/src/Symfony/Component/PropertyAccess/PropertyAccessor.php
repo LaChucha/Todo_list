@@ -24,7 +24,7 @@ use Symfony\Component\PropertyAccess\Exception\NoSuchIndexException;
 use Symfony\Component\PropertyAccess\Exception\UnexpectedTypeException;
 
 /**
- * Default implementation of {@link PropertyAccessorInterface}.
+ * TaskList implementation of {@link PropertyAccessorInterface}.
  *
  * @author Bernhard Schussek <bschussek@gmail.com>
  * @author Kévin Dunglas <dunglas@gmail.com>

@@ -31,7 +31,7 @@ use Doctrine\ORM\Cache;
 use Doctrine\ORM\Query;
 
 /**
- * Default query cache implementation.
+ * TaskList query cache implementation.
  *
  * @since   2.5
  * @author  Fabio B. Silva <fabio.bat.silva@gmail.com>

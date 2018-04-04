@@ -44,7 +44,7 @@ interface ContextualValidatorInterface
      *                                             against
      * @param array|null              $groups      The validation groups to
      *                                             validate. If none is given,
-     *                                             "Default" is assumed
+     *                                             "TaskList" is assumed
      *
      * @return $this
      */
@@ -57,7 +57,7 @@ interface ContextualValidatorInterface
      * @param object     $object       The object
      * @param string     $propertyName The name of the validated property
      * @param array|null $groups       The validation groups to validate. If
-     *                                 none is given, "Default" is assumed
+     *                                 none is given, "TaskList" is assumed
      *
      * @return $this
      */
@@ -72,7 +72,7 @@ interface ContextualValidatorInterface
      * @param mixed         $value         The value to validate against the
      *                                     property's constraints
      * @param array|null    $groups        The validation groups to validate. If
-     *                                     none is given, "Default" is assumed
+     *                                     none is given, "TaskList" is assumed
      *
      * @return $this
      */

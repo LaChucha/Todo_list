@@ -11,7 +11,7 @@
  */
 
 /**
- * Default implementation of a token parser broker.
+ * TaskList implementation of a token parser broker.
  *
  * @author Arnaud Le Blanc <arnaud.lb@gmail.com>
  *

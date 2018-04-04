@@ -129,9 +129,9 @@ class ConstraintTest extends TestCase
 
     public function testAddDefaultGroupAddsGroup()
     {
-        $constraint = new ConstraintA(array('groups' => 'Default'));
+        $constraint = new ConstraintA(array('groups' => 'TaskList'));
         $constraint->addImplicitGroupName('Foo');
-        $this->assertEquals(array('Default', 'Foo'), $constraint->groups);
+        $this->assertEquals(array('TaskList', 'Foo'), $constraint->groups);
     }
 
     public function testAllowsSettingZeroRequiredPropertyValue()
@@ -185,7 +185,7 @@ class ConstraintTest extends TestCase
         $expected = new ConstraintA(array(
             'property1' => 'foo',
             'property2' => 'bar',
-            'groups' => 'Default',
+            'groups' => 'TaskList',
         ));
 
         $this->assertEquals($expected, $constraint);

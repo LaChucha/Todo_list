@@ -1055,7 +1055,7 @@ abstract class AbstractValidatorTest extends TestCase
         $sequence = new GroupSequence(array('Group 1', 'Group 2', 'Group 3', 'Entity'));
         $this->metadata->setGroupSequence($sequence);
 
-        $violations = $this->validate($entity, null, 'Default');
+        $violations = $this->validate($entity, null, 'TaskList');
 
         /* @var ConstraintViolationInterface[] $violations */
         $this->assertCount(1, $violations);
@@ -1089,7 +1089,7 @@ abstract class AbstractValidatorTest extends TestCase
         $sequence = array('Group 1', 'Group 2', 'Group 3', 'Entity');
         $this->metadata->setGroupSequence($sequence);
 
-        $violations = $this->validate($entity, null, 'Default');
+        $violations = $this->validate($entity, null, 'TaskList');
 
         /* @var ConstraintViolationInterface[] $violations */
         $this->assertCount(1, $violations);
@@ -1102,7 +1102,7 @@ abstract class AbstractValidatorTest extends TestCase
         $entity->reference = new Reference();
 
         $callback1 = function ($value, ExecutionContextInterface $context) {
-            $context->addViolation('Violation in Default group');
+            $context->addViolation('Violation in TaskList group');
         };
         $callback2 = function ($value, ExecutionContextInterface $context) {
             $context->addViolation('Violation in group sequence');
@@ -1111,7 +1111,7 @@ abstract class AbstractValidatorTest extends TestCase
         $this->metadata->addPropertyConstraint('reference', new Valid());
         $this->referenceMetadata->addConstraint(new Callback(array(
             'callback' => $callback1,
-            'groups' => 'Default',
+            'groups' => 'TaskList',
         )));
         $this->referenceMetadata->addConstraint(new Callback(array(
             'callback' => $callback2,
@@ -1121,11 +1121,11 @@ abstract class AbstractValidatorTest extends TestCase
         $sequence = new GroupSequence(array('Group 1', 'Entity'));
         $this->metadata->setGroupSequence($sequence);
 
-        $violations = $this->validate($entity, null, 'Default');
+        $violations = $this->validate($entity, null, 'TaskList');
 
         /* @var ConstraintViolationInterface[] $violations */
         $this->assertCount(1, $violations);
-        $this->assertSame('Violation in Default group', $violations[0]->getMessage());
+        $this->assertSame('Violation in TaskList group', $violations[0]->getMessage());
     }
 
     public function testValidateCustomGroupWhenDefaultGroupWasReplaced()
@@ -1189,7 +1189,7 @@ abstract class AbstractValidatorTest extends TestCase
 
         $this->metadataFactory->addMetadata($metadata);
 
-        $violations = $this->validate($entity, null, 'Default');
+        $violations = $this->validate($entity, null, 'TaskList');
 
         /* @var ConstraintViolationInterface[] $violations */
         $this->assertCount(count($assertViolations), $violations);

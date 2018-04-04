@@ -26,7 +26,7 @@ namespace Symfony\Component\Validator\Constraints;
  * services. You usually don't want to run expensive checks if any of the cheap
  * checks fail.
  *
- * When adding metadata to a class, you can override the "Default" group of
+ * When adding metadata to a class, you can override the "TaskList" group of
  * that class with a group sequence:
  *
  *     /**
@@ -37,12 +37,12 @@ namespace Symfony\Component\Validator\Constraints;
  *         // ...
  *     }
  *
- * Whenever you validate that object in the "Default" group, the group sequence
+ * Whenever you validate that object in the "TaskList" group, the group sequence
  * will be validated:
  *
  *     $validator->validate($address);
  *
- * If you want to execute the constraints of the "Default" group for a class
+ * If you want to execute the constraints of the "TaskList" group for a class
  * with an overridden default group, pass the class name as group name instead:
  *
  *     $validator->validate($address, null, "Address")
@@ -69,8 +69,8 @@ class GroupSequence
      * the sequence.
      *
      * If a class has a group sequence attached, that sequence replaces the
-     * "Default" group. When validating that class in the "Default" group, the
-     * group sequence is used instead, but still the "Default" group should be
+     * "TaskList" group. When validating that class in the "TaskList" group, the
+     * group sequence is used instead, but still the "TaskList" group should be
      * cascaded to other objects.
      *
      * @var string|GroupSequence

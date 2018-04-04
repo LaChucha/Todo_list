@@ -12,7 +12,7 @@
 namespace Symfony\Component\Form;
 
 /**
- * Default implementation of {@link FormRendererEngineInterface}.
+ * TaskList implementation of {@link FormRendererEngineInterface}.
  *
  * @author Bernhard Schussek <bschussek@gmail.com>
  */

@@ -18,7 +18,7 @@ class Swift_Signers_OpenDKIMSignerTest extends \SwiftMailerTestCase
     {
     }
 
-    // Default Signing
+    // TaskList Signing
     public function testSigningDefaults()
     {
     }

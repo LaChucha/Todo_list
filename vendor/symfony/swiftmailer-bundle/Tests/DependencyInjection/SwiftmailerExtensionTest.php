@@ -234,7 +234,7 @@ class SwiftmailerExtensionTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('swiftmailer.mailer.default.transport.spool', (string) $container->getAlias('swiftmailer.mailer.default.transport'));
         $this->assertEquals('swiftmailer.mailer.default.transport.real', (string) $container->getAlias('swiftmailer.transport.real'));
         $this->assertEquals('swiftmailer.mailer.default.transport.smtp', (string) $container->getAlias('swiftmailer.mailer.default.transport.real'));
-        $this->assertTrue($container->has('swiftmailer.mailer.default.spool.file'), 'Default is file based spool');
+        $this->assertTrue($container->has('swiftmailer.mailer.default.spool.file'), 'TaskList is file based spool');
     }
 
     /**

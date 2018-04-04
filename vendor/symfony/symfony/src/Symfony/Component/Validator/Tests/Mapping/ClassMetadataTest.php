@@ -64,8 +64,8 @@ class ClassMetadataTest extends TestCase
         $this->metadata->addPropertyConstraints('lastName', array(new ConstraintA(), new ConstraintB()));
 
         $constraints = array(
-            new ConstraintA(array('groups' => array('Default', 'Entity'))),
-            new ConstraintB(array('groups' => array('Default', 'Entity'))),
+            new ConstraintA(array('groups' => array('TaskList', 'Entity'))),
+            new ConstraintB(array('groups' => array('TaskList', 'Entity'))),
         );
 
         $properties = $this->metadata->getPropertyMetadata('lastName');
@@ -81,8 +81,8 @@ class ClassMetadataTest extends TestCase
         $this->metadata->addGetterConstraint('lastName', new ConstraintB());
 
         $constraints = array(
-            new ConstraintA(array('groups' => array('Default', 'Entity'))),
-            new ConstraintB(array('groups' => array('Default', 'Entity'))),
+            new ConstraintA(array('groups' => array('TaskList', 'Entity'))),
+            new ConstraintB(array('groups' => array('TaskList', 'Entity'))),
         );
 
         $properties = $this->metadata->getPropertyMetadata('lastName');
@@ -97,8 +97,8 @@ class ClassMetadataTest extends TestCase
         $this->metadata->addGetterConstraints('lastName', array(new ConstraintA(), new ConstraintB()));
 
         $constraints = array(
-            new ConstraintA(array('groups' => array('Default', 'Entity'))),
-            new ConstraintB(array('groups' => array('Default', 'Entity'))),
+            new ConstraintA(array('groups' => array('TaskList', 'Entity'))),
+            new ConstraintB(array('groups' => array('TaskList', 'Entity'))),
         );
 
         $properties = $this->metadata->getPropertyMetadata('lastName');
@@ -118,12 +118,12 @@ class ClassMetadataTest extends TestCase
 
         $constraints = array(
             new ConstraintA(array('groups' => array(
-                'Default',
+                'TaskList',
                 'EntityParent',
                 'Entity',
             ))),
             new ConstraintA(array('groups' => array(
-                'Default',
+                'TaskList',
                 'Entity',
             ))),
         );
@@ -141,12 +141,12 @@ class ClassMetadataTest extends TestCase
         $this->metadata->addPropertyConstraint('firstName', new ConstraintA());
 
         $constraintA1 = new ConstraintA(array('groups' => array(
-            'Default',
+            'TaskList',
             'EntityParent',
             'Entity',
         )));
         $constraintA2 = new ConstraintA(array('groups' => array(
-            'Default',
+            'TaskList',
             'Entity',
         )));
         $constraintB = new ConstraintB(array(
@@ -160,7 +160,7 @@ class ClassMetadataTest extends TestCase
         );
 
         $constraintsByGroup = array(
-            'Default' => array(
+            'TaskList' => array(
                 $constraintA1,
                 $constraintA2,
             ),
@@ -202,14 +202,14 @@ class ClassMetadataTest extends TestCase
 
         $parentConstraints = array(
             new ConstraintA(array('groups' => array(
-                'Default',
+                'TaskList',
                 'EntityParent',
                 'Entity',
             ))),
         );
         $constraints = array(
             new ConstraintA(array('groups' => array(
-                'Default',
+                'TaskList',
                 'Entity',
             ))),
         );

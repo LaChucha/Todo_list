@@ -18,7 +18,7 @@ use Symfony\Component\Intl\Locale;
 use Symfony\Component\Intl\Data\Util\RecursiveArrayAccess;
 
 /**
- * Default implementation of {@link BundleEntryReaderInterface}.
+ * TaskList implementation of {@link BundleEntryReaderInterface}.
  *
  * @author Bernhard Schussek <bschussek@gmail.com>
  *

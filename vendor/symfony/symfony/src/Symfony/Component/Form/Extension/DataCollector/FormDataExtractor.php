@@ -17,7 +17,7 @@ use Symfony\Component\HttpKernel\DataCollector\Util\ValueExporter;
 use Symfony\Component\Validator\ConstraintViolationInterface;
 
 /**
- * Default implementation of {@link FormDataExtractorInterface}.
+ * TaskList implementation of {@link FormDataExtractorInterface}.
  *
  * @author Bernhard Schussek <bschussek@gmail.com>
  */

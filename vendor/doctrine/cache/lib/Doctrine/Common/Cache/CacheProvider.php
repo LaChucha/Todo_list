@@ -215,7 +215,7 @@ abstract class CacheProvider implements Cache, FlushableCache, ClearableCache, M
     }
 
     /**
-     * Default implementation of doFetchMultiple. Each driver that supports multi-get should owerwrite it.
+     * TaskList implementation of doFetchMultiple. Each driver that supports multi-get should owerwrite it.
      *
      * @param array $keys Array of keys to retrieve from cache
      * @return array Array of values retrieved for the given keys.
@@ -252,7 +252,7 @@ abstract class CacheProvider implements Cache, FlushableCache, ClearableCache, M
     abstract protected function doContains($id);
 
     /**
-     * Default implementation of doSaveMultiple. Each driver that supports multi-put should override it.
+     * TaskList implementation of doSaveMultiple. Each driver that supports multi-put should override it.
      *
      * @param array $keysAndValues  Array of keys and values to save in cache
      * @param int   $lifetime       The lifetime. If != 0, sets a specific lifetime for these

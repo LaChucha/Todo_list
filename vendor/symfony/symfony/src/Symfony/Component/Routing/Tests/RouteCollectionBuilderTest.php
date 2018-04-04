@@ -107,7 +107,7 @@ class RouteCollectionBuilderTest extends TestCase
         // 2) Import from a file
         $routes->mount('/', $routes->import('admin_routing.yml'));
         // 3) Add another route
-        $routes->add('/', 'AppBundle:Default:homepage', 'homepage');
+        $routes->add('/', 'AppBundle:TaskList:homepage', 'homepage');
         // 4) Add another route
         $routes->add('/admin', 'AppBundle:Admin:dashboard', 'admin_dashboard');
 

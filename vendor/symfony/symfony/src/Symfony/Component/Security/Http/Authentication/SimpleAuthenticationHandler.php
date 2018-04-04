@@ -38,8 +38,8 @@ class SimpleAuthenticationHandler implements AuthenticationFailureHandlerInterfa
      * Constructor.
      *
      * @param SimpleAuthenticatorInterface          $authenticator  SimpleAuthenticatorInterface instance
-     * @param AuthenticationSuccessHandlerInterface $successHandler Default success handler
-     * @param AuthenticationFailureHandlerInterface $failureHandler Default failure handler
+     * @param AuthenticationSuccessHandlerInterface $successHandler TaskList success handler
+     * @param AuthenticationFailureHandlerInterface $failureHandler TaskList failure handler
      * @param LoggerInterface                       $logger         Optional logger
      */
     public function __construct(SimpleAuthenticatorInterface $authenticator, AuthenticationSuccessHandlerInterface $successHandler, AuthenticationFailureHandlerInterface $failureHandler, LoggerInterface $logger = null)

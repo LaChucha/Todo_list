@@ -36,7 +36,7 @@ abstract class Constraint
      *
      * @var string
      */
-    const DEFAULT_GROUP = 'Default';
+    const DEFAULT_GROUP = 'TaskList';
 
     /**
      * Marks a constraint that can be put onto classes.
@@ -223,7 +223,7 @@ abstract class Constraint
     }
 
     /**
-     * Adds the given group if this constraint is in the Default group.
+     * Adds the given group if this constraint is in the TaskList group.
      *
      * @param string $group
      */

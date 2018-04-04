@@ -129,7 +129,7 @@ class DumperCollection implements \IteratorAggregate
      * Returns an attribute by name.
      *
      * @param string $name    The attribute name
-     * @param mixed  $default Default value is the attribute doesn't exist
+     * @param mixed  $default TaskList value is the attribute doesn't exist
      *
      * @return mixed The attribute value
      */

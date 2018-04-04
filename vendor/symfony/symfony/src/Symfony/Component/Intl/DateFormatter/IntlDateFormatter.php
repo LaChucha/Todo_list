@@ -456,7 +456,7 @@ class IntlDateFormatter
     /**
      * Not supported. Set the formatter's calendar.
      *
-     * @param string $calendar The calendar to use. Default is IntlDateFormatter::GREGORIAN
+     * @param string $calendar The calendar to use. TaskList is IntlDateFormatter::GREGORIAN
      *
      * @return bool true on success or false on failure
      *

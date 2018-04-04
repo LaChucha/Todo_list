@@ -23,7 +23,7 @@ class FileLoaderTest extends TestCase
 
         $locatorMockForAdditionalLoader = $this->getMockBuilder('Symfony\Component\Config\FileLocatorInterface')->getMock();
         $locatorMockForAdditionalLoader->expects($this->any())->method('locate')->will($this->onConsecutiveCalls(
-                array('path/to/file1'),                    // Default
+                array('path/to/file1'),                    // TaskList
                 array('path/to/file1', 'path/to/file2'),   // First is imported
                 array('path/to/file1', 'path/to/file2'),   // Second is imported
                 array('path/to/file1'),                    // Exception
@@ -39,7 +39,7 @@ class FileLoaderTest extends TestCase
 
         $fileLoader->setResolver($loaderResolver = new LoaderResolver(array($fileLoader, $additionalLoader)));
 
-        // Default case
+        // TaskList case
         $this->assertSame('path/to/file1', $fileLoader->import('my_resource'));
 
         // Check first file is imported if not already loading
