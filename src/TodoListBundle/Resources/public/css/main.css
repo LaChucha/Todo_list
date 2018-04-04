@@ -125,3 +125,16 @@ ul li.editMode input[type=text] {
 ul li.editMode label {
     display:none;
 }
+
+.edit{
+    float: right;
+}
+
+.edit:hover{
+    font-weight: bolder;
+    color:#53b469;
+}
+
+#list-tasks td:hover{
+    background-color: #e4dbdb;
+}

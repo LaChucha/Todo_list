@@ -17,6 +17,7 @@ class TaskListController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
         $form = $this->createForm(AddListType::class);
         $form->handleRequest($request);
 
@@ -30,19 +31,20 @@ class TaskListController extends Controller
                 $list->setCreated($date);
                 $dueDate = new \DateTime($formData['newListDueDate']['year']."-".$formData['newListDueDate']['month']."-".$formData['newListDueDate']['day']);
                 $list->setDueDate($dueDate);
-
-                $em = $this->getDoctrine()->getManager();
                 $em->persist($list);
                 $em->flush();
                 $this->addFlash('success',"The new task list has been saved successfully");
             }
 
-
-
         }
+
+        /*Fetching of the Task lists*/
+        $taskList = $em->getRepository('TodoListBundle:TaskList')->findAll();
+
         return $this->render('TodoListBundle:TaskList:index.html.twig',array(
 
             'form' => $form->createView(),
+            'lists' => $taskList
         ));
     }
 }
