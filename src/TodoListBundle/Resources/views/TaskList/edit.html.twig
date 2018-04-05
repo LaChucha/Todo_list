@@ -60,8 +60,15 @@
         </ul>
         <h3>Completed</h3>
         <ul id="completed-tasks">
-         {% if completedTasks is not null %}
-             <span class="btn btn-danger" style="float:right;">Mark as completed</span>
+         {% if completedTasks is defined %}
+             <a style ="color:#fff;" href="{{ path('delete_list', {'listID': listId }) }}"><span id="markDone" class="btn btn-danger" style="float:right;">Mark as completed</span></a>
+             {% if completedTasks is empty %}
+                 <div style="color:#fff;">
+                     .
+                     <br>
+                     .
+                 </div>
+             {% endif %}
              {% for completed in completedTasks %}
                 <li><input type="checkbox" checked /><label>{{ completed.title }}</label></li>
              {% endfor %}

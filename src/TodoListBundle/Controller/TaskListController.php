@@ -43,12 +43,14 @@ class TaskListController extends Controller
         }
 
         /*Fetching of the Task lists*/
-        $taskList = $em->getRepository('TodoListBundle:TaskList')->findAll();
+        $taskList = $em->getRepository('TodoListBundle:TaskList')->findBy(array('completed'=>false));
+        $completedList = $em->getRepository('TodoListBundle:TaskList')->findBy(array('completed'=>true));
 
         return $this->render('TodoListBundle:TaskList:index.html.twig',array(
 
             'form' => $form->createView(),
-            'lists' => $taskList
+            'lists' => $taskList,
+            'completedList' => $completedList
         ));
     }
 
@@ -87,9 +89,38 @@ class TaskListController extends Controller
 
         return $this->render('TodoListBundle:TaskList:edit.html.twig',array(
             'listName' => $listName,
+            'listId' => $listId,
             'form' => $form->createView(),
             'tasks' => $tasks,
             'completedTasks' => $completedTasks
+
+        ));
+    }
+
+    /**
+     * @Route("/delete_list", name="delete_list")
+     * @Template()
+     */
+    public function deleteListAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $listId = $request->query->get('listID');
+        $list = $em->getRepository('TodoListBundle:TaskList')->findOneBy(array('id'=>$listId));
+        $name = $list->getName();
+        $list->setCompleted(true);
+        $em->persist($list);
+        $em->flush();
+        $this->addFlash('success',"The list ".$name." has been deleted");
+
+        $form = $this->createForm(AddListType::class);
+        $taskList = $em->getRepository('TodoListBundle:TaskList')->findBy(array('completed'=>false));
+        $completedList = $em->getRepository('TodoListBundle:TaskList')->findBy(array('completed'=>true));
+
+        return $this->render('TodoListBundle:TaskList:index.html.twig',array(
+
+            'form' => $form->createView(),
+            'lists' => $taskList,
+            'completedList' => $completedList
 
         ));
     }
