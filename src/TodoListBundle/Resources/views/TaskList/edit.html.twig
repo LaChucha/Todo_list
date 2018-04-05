@@ -3,7 +3,7 @@
 {% block title %}{{title}}{% endblock %}
 
 {% block body %}
-    <div class="container" style="width: 40%;">
+    <div class="container" style="width: 40%">
         <div>
             <label for="new-task">{{ listName }}</label>
             {% if form is defined %}
@@ -60,12 +60,15 @@
         </ul>
         <h3>Completed</h3>
         <ul id="completed-tasks">
-         {% if completedTasks is defined %}
+         {% if completedTasks is not null %}
+             <span class="btn btn-danger" style="float:right;">Mark as completed</span>
              {% for completed in completedTasks %}
                 <li><input type="checkbox" checked /><label>{{ completed.title }}</label></li>
              {% endfor %}
+
          {% endif %}
         </ul>
+
     </div>
 {% endblock %}
 {% block javascripts %}
