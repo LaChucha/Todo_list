@@ -8,7 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class AddListType extends AbstractType {
+class AddTaskType extends AbstractType {
 
     /**
      * @param FormBuilderInterface $builder
@@ -16,9 +16,11 @@ class AddListType extends AbstractType {
      */
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
-            ->add('newListName', TextType::class, array('label' => 'Name', 'required' => true))
+            ->add('newTaskName', TextType::class, array('label' => 'Title', 'required' => true))
 
-            ->add('newListDueDate', DateType::class, array(
+            ->add('newTaskDesc', TextType::class, array('label' => 'Description', 'required' => false))
+
+            ->add('newTaskDueDate', DateType::class, array(
                 'label' => 'Due date',
                 'placeholder' => array(
                     'year' => 'Year', 'month' => 'Month', 'day' => 'Day',

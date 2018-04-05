@@ -1,0 +1,82 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+    <div class="container" style="width: 40%;">
+        <div>
+            <label for="new-task">{{ listName }}</label>
+            {% if form is defined %}
+                {{ form_start( form ) }}
+                <fieldset>
+
+                    {{ form_errors( form ) }}
+                    <div>
+                        {{ form_label(form.newTaskName, null, {'label_attr': {'class': 'control-label'}}) }}
+                        {{ form_widget(form.newTaskName,{'label_attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.newTaskName) }}
+                    </div>
+                    </br>
+                    <div>
+                        {{ form_label(form.newTaskDesc, null, {'label_attr': {'class': 'control-label'}}) }}
+                        {{ form_widget(form.newTaskDesc,{'label_attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.newTaskDesc) }}
+                    </div>
+                    </br>
+                    <div>
+                        {{ form_label(form.newTaskDueDate, null, {'label_attr': {'class': 'control-label'}}) }}
+                        {{ form_widget(form.newTaskDueDate,{'label_attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.newTaskDueDate) }}
+                        {{ form_widget(form.add, {'attr': {'class': 'btn btn-success sub'}}) }}
+                    </div>
+                </fieldset>
+                {{ form_row(form._token) }}
+                </form>
+            {% endif %}
+            <div>
+                {% for type, flash_messages in app.session.flashBag.all %}
+                    {% for flash_message in flash_messages %}
+                        <div class="alert alert-{{ type }}">
+                            {{ flash_message }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+        <h3 style="margin-top: -4%;">Tasks</h3>
+        <ul id="list-tasks">
+            {% if tasks is defined %}
+                <table class="table">
+                    <tbody>
+                    {% for task in tasks %}
+                        <tr>
+                            <td><input type="checkbox" /> {{ task.id }} - {{ task.title }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <span id="update" class="btn btn-info sub">update</span>
+            {% endif %}
+        </ul>
+        <h3>Completed</h3>
+        <ul id="completed-tasks">
+         {% if completedTasks is defined %}
+             {% for completed in completedTasks %}
+                <li><input type="checkbox" checked /><label>{{ completed.title }}</label></li>
+             {% endfor %}
+         {% endif %}
+        </ul>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $('#update').on("click", function(){
+            var selectedRows = $( '.table' ).find( 'tbody' ) // select table body and
+                .find( 'tr' ) // select all rows that has
+                .has( 'input[type=checkbox]:checked' ) // checked checkbox element
+            console.log( 'selectedRows:', selectedRows.text());
+        });
+
+    </script>
+{% endblock %}

@@ -3,17 +3,21 @@
 namespace TodoListBundle\Controller;
 
 use DateTime;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use TodoListBundle\Entity\Task;
 use TodoListBundle\Entity\TaskList;
 use TodoListBundle\Form\Type\AddListType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use TodoListBundle\Form\Type\AddTaskType;
 
 class TaskListController extends Controller
 {
     /**
      * @Route("/")
+     * @Template()
      */
     public function indexAction(Request $request)
     {
@@ -45,6 +49,48 @@ class TaskListController extends Controller
 
             'form' => $form->createView(),
             'lists' => $taskList
+        ));
+    }
+
+    /**
+     * @Route("/edit", name="edit_list")
+     * @Template()
+     */
+    public function editAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $listName = $request->query->get('listName');
+        $listId = $request->query->get('listID');
+        $list = $em->getRepository('TodoListBundle:TaskList')->findOneBy(array('id'=>$listId));
+        $form = $this->createForm(AddTaskType::class);
+        $form->handleRequest($request);
+
+        //if form is submitted
+        if($form->isSubmitted() && $form->isValid()) {
+            $formData = $request->request->get('add_task');
+            if(count($formData) > 0){
+                $task = new Task();
+                $task->setTitle($formData['newTaskName']);;
+                $dueDate = new \DateTime($formData['newTaskDueDate']['year']."-".$formData['newTaskDueDate']['month']."-".$formData['newTaskDueDate']['day']);
+                $task->setDueDate($dueDate);
+                $task->setDescription($formData['newTaskDesc']);
+                $task->setListId($list);
+
+                $em->persist($task);
+                $em->flush();
+                $this->addFlash('success',"The new task has been saved successfully");
+            }
+
+        }
+        $tasks = $em->getRepository('TodoListBundle:Task')->findBy(array('listId'=>$listId,'status'=>"Pending"));
+        $completedTasks = $em->getRepository('TodoListBundle:Task')->findBy(array('listId'=>$listId,'status'=>"completed"));
+
+        return $this->render('TodoListBundle:TaskList:edit.html.twig',array(
+            'listName' => $listName,
+            'form' => $form->createView(),
+            'tasks' => $tasks,
+            'completedTasks' => $completedTasks
+
         ));
     }
 }
