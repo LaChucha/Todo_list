@@ -49,14 +49,14 @@
                 <table class="table">
                     <tbody>
                     {% for task in tasks %}
-                        <tr>
-                            <td><input type="checkbox" /> {{ task.id }} - {{ task.title }}</td>
+                        <tr id="{{ task.id }}">
+                            <td style="color: cornflowerblue;">{{ task.title }}<button type="button" class="btn btn-warning edit update" data-id={{ task.id }}>Done</button></td>
                         </tr>
                     {% endfor %}
                     </tbody>
                 </table>
-                <span id="update" class="btn btn-info sub">update</span>
             {% endif %}
+            <br>
         </ul>
         <h3>Completed</h3>
         <ul id="completed-tasks">
@@ -71,11 +71,21 @@
 {% block javascripts %}
     {{ parent() }}
     <script type="text/javascript">
-        $('#update').on("click", function(){
-            var selectedRows = $( '.table' ).find( 'tbody' ) // select table body and
-                .find( 'tr' ) // select all rows that has
-                .has( 'input[type=checkbox]:checked' ) // checked checkbox element
-            console.log( 'selectedRows:', selectedRows.text());
+        $('.update').on("click", function(){
+             var id = $(this).data('id');
+            $.ajax({
+                url: "{{ path('edit_task') }}",
+                type : 'POST',
+                dataType : 'json',
+                data: {taskId:id},
+                success : function (jsonData) {
+                    console.log(jsonData);
+                   $('#'+id+'').remove();
+                    $('#completed-tasks').append($('<li><input type="checkbox" checked /><label>'+jsonData['title']+'</label></li>'));
+
+                }
+
+            });
         });
 
     </script>
