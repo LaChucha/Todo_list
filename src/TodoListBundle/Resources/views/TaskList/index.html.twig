@@ -1,0 +1,62 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+    <div class="container" style="width: 40%;">
+        <div>
+            <label for="new-task">Add a new task list</label>
+            {% if form is defined %}
+                {{ form_start( form ) }}
+                    <fieldset>
+
+                        {{ form_errors( form ) }}
+                        <div>
+                            {{ form_label(form.newListName, null, {'label_attr': {'class': 'control-label'}}) }}
+                            {{ form_widget(form.newListName,{'label_attr': {'class': 'form-control'}}) }}
+                            {{ form_errors(form.newListName) }}
+                        </div>
+                        </br>
+                        <div>
+                            {{ form_label(form.newListDueDate, null, {'label_attr': {'class': 'control-label'}}) }}
+                            {{ form_widget(form.newListDueDate,{'label_attr': {'class': 'form-control'}}) }}
+                            {{ form_errors(form.newListDueDate) }}
+                            {{ form_widget(form.add, {'attr': {'class': 'btn btn-success sub'}}) }}
+                        </div>
+                    </fieldset>
+                    {{ form_row(form._token) }}
+                </form>
+            {% endif %}
+            <br>
+            <div>
+                {% for type, flash_messages in app.session.flashBag.all %}
+                    {% for flash_message in flash_messages %}
+                        <div class="alert alert-{{ type }}">
+                            {{ flash_message }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+        <h3 style="margin-top: -4%;">Task Lists</h3>
+        <ul id="list-tasks">
+            {% if lists is defined %}
+            <table class="table">
+                <tbody>
+                    {% for list in lists %}
+                    <tr>
+                        <td>{{ list.name }}  <a style ="color:#fff;" href="{{ path('edit_list', { 'listName': list.name,'listID': list.id }) }}"><button class="edit">Edit</button></a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% endif %}
+        </ul>
+        <h3>Completed</h3>
+        <ul id="completed-tasks">
+            {% for complete in completedList %}
+                <li><input type="checkbox" checked><label>{{ complete.name }}</label><input type="text"></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
