@@ -84,12 +84,11 @@
         $('.update').on("click", function(){
              var id = $(this).data('id');
             $.ajax({
-                url: "{{ path('edit_task') }}",
-                type : 'POST',
+                url: "{{ path('edit_task') }}",     //we use ajax here to dynamicaly remove the selected item from
+                type : 'POST',                      // the ongoing task and add it as completed task
                 dataType : 'json',
                 data: {taskId:id},
                 success : function (jsonData) {
-                    console.log(jsonData);
                    $('#'+id+'').remove();
                     $('#completed-tasks').append($('<li><input type="checkbox" checked /><label>'+jsonData['title']+'</label></li>'));
 

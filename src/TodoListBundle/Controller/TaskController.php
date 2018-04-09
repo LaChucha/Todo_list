@@ -17,18 +17,18 @@ class TaskController extends Controller
      * @Route("/edit_task", name="edit_task")
      * @Template()
      */
-    public function editTaskAction(Request $request)
+    public function editTaskAction(Request $request) // this method is called using ajax in edit view
     {
         $em = $this->getDoctrine()->getManager();
-        $taskId = $request->request->get('taskId');
-        $data = array();
+        $taskId = $request->request->get('taskId'); // we recover the task id from url
+        $data = array(); //init of an empty array
         $task = $this->getDoctrine()->getRepository('TodoListBundle:Task')->findOneBy(array('id' => $taskId));
         $task->setStatus('Completed');
-        $data['id'] = $task->getId();
+        $data['id'] = $task->getId(); //we only need the id and title of the task to be displayed in the view
         $data['title'] = $task->getTitle();
         $em->persist($task);
         $em->flush();
 
-        return new JsonResponse($data,Response::HTTP_ACCEPTED);
+        return new JsonResponse($data,Response::HTTP_ACCEPTED); //send back to the view as a json response
     }
 }
